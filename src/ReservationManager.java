@@ -106,8 +106,7 @@ public class ReservationManager{
             }
         }
     }
-
-    public void viewAllReservations() {
+    public void viewAllReservations(){
         System.out.println("\n=== ALL RESERVATIONS ===");
         for (Reservation res : reservations) {
             System.out.println("Reservation ID: " + res.getReservationId() +
@@ -116,12 +115,12 @@ public class ReservationManager{
         }
     }
 
-    public void cancelReservation() {
+    public void cancelReservation(){
         System.out.print("Enter reservation ID to cancel: ");
         String resId = scanner.next();
 
-        for (Reservation res : reservations) {
-            if (res.getReservationId().equalsIgnoreCase(resId)) {
+        for (Reservation res : reservations){
+            if (res.getReservationId().equalsIgnoreCase(resId)){
                 res.getRoom().setAvailable(true);
                 reservations.remove(res);
                 saveAllData();
@@ -131,10 +130,9 @@ public class ReservationManager{
         }
         System.out.println("Reservation ID not found!");
     }
-
-    public void viewAllRooms() {
+    public void viewAllRooms(){
         System.out.println("\n=== ALL ROOMS ===");
-        for (Room room : rooms) {
+        for (Room room : rooms){
             System.out.println("Room " + room.getRoomNumber() + " - " +
                     room.getRoomType() + " - $" + room.getPrice() +
                     " (" + room.getAmenities() + ") - " +
@@ -142,7 +140,7 @@ public class ReservationManager{
         }
     }
 
-    public void viewAllGuests() {
+    public void viewAllGuests(){
         System.out.println("\n=== ALL GUESTS ===");
         for (Guest guest : guests) {
             System.out.println("Member ID: " + guest.getMemberId() +
@@ -151,7 +149,6 @@ public class ReservationManager{
                     ", Age: " + guest.getAge());
         }
     }
-
     private String generateMemberId(){
         String memberId;
         do {
@@ -168,7 +165,6 @@ public class ReservationManager{
         }
         return null;
     }
-
     private Guest findGuestByDetails(String name, String phone, String email, int age){
         for (Guest guest : guests){
             if (guest.getName().equalsIgnoreCase(name) &&
@@ -180,18 +176,17 @@ public class ReservationManager{
         }
         return null;
     }
-
-    private Room findRoomByNumber(int roomNumber) {
-        for (Room room : rooms) {
-            if (room.getRoomNumber() == roomNumber) {
+    private Room findRoomByNumber(int roomNumber){
+        for (Room room : rooms){
+            if (room.getRoomNumber() == roomNumber){
                 return room;
             }
         }
         return null;
     }
 
-    private int getIntInput() {
-        while (!scanner.hasNextInt()) {
+    private int getIntInput(){
+        while (!scanner.hasNextInt()){
             System.out.print("Invalid input. Enter a number: ");
             scanner.next();
         }
