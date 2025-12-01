@@ -16,14 +16,18 @@ public class Guest implements Serializable{
     }
 
     public String getMemberId(){
-        return memberId; 
-                                }
+        return memberId;
+    }
     public String getName(){
-        return name; }
+        return name;
+    }
     public String getPhone(){
-        return phone; }
+        return phone;
+    }
     public String getEmail(){
-        return email; }
+        return email;
+    }
     public int getAge(){
-        return age; }
+        return age;
+    }
 }
