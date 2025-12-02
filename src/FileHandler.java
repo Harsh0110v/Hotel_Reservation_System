@@ -54,7 +54,6 @@ public class FileHandler{
             System.out.println("Error saving reservations: " + e.getMessage());
         }
     }
-
     @SuppressWarnings("unchecked")
     public List<Reservation> loadReservations(){
         File file= new File(RESERVATIONS_FILE);
@@ -78,4 +77,5 @@ public class FileHandler{
         defaultRooms.add(new Room(203, "Deluxe", 150.0, "WiFi, Sea View"));
         return defaultRooms;
     }
+
 }
