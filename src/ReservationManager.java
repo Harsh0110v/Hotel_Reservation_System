@@ -14,7 +14,6 @@ public class ReservationManager{
         this.fileHandler= new FileHandler();
         loadAllData();
     }
-
     private void loadAllData(){
         this.rooms= fileHandler.loadRooms();
         this.guests= fileHandler.loadGuests();
