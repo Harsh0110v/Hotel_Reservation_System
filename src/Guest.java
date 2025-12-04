@@ -15,9 +15,23 @@ public class Guest implements Serializable {
         this.age = age;
     }
 
-    public String getMemberId() { return memberId; }
-    public String getName() { return name; }
-    public String getPhone() { return phone; }
-    public String getEmail() { return email; }
-    public int getAge() { return age; }
+    public String getMemberId() {
+        return memberId; }
+    public String getName() {
+        return name; }
+    public String getPhone() {
+        return phone; }
+    public String getEmail() {
+        return email; }
+    public int getAge() {
+        return age; }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 }

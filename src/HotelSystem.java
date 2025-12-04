@@ -11,33 +11,43 @@ public class HotelSystem{
     public void start(){
         while (true) {
             System.out.println("\n=== HOTEL RESERVATION SYSTEM ===");
-            System.out.println("1. Make Reservation");
-            System.out.println("2. View Available Rooms");
-            System.out.println("3. View All Reservations");
-            System.out.println("4. Cancel Reservation");
-            System.out.println("5. View All Rooms");
-            System.out.println("6. View All Guests");
-            System.out.println("7. Exit");
-            System.out.print("Choose option: ");
+            System.out.println("1.Make Reservation");
+            System.out.println("2.View Available Rooms");
+            System.out.println("3.View All Reservations");
+            System.out.println("4.Cancel Reservation");
+            System.out.println("5.View All Rooms");
+            System.out.println("6.View All Guests");
+            System.out.println("7.Exit");
+            System.out.println("8.Edit Guest Details");
+            System.out.print("Choose option:");
 
             int choice = getIntInput();
             switch (choice){
-                case 1: reservationManager.makeReservation();
+                case 1:
+                    reservationManager.makeReservation();
                 break;
-                case 2: reservationManager.viewAvailableRooms();
+                case 2:
+                    reservationManager.viewAvailableRooms();
                 break;
-                case 3: reservationManager.viewAllReservations();
+                case 3:
+                    reservationManager.viewAllReservations();
                 break;
-                case 4: reservationManager.cancelReservation();
+                case 4:
+                    reservationManager.cancelReservation();
                 break;
-                case 5: reservationManager.viewAllRooms();
+                case 5:
+                    reservationManager.viewAllRooms();
                 break;
-                case 6: reservationManager.viewAllGuests();
+                case 6:
+                    reservationManager.viewAllGuests();
                 break;
                 case 7:
                     reservationManager.saveAllData();
                     System.out.println("Data saved.Thank you!");
                     return;
+                case 8:
+                    reservationManager.editGuestDetails();
+                break;
                 default: System.out.println("Invalid option!");
             }
         }

@@ -8,13 +8,52 @@ public class ReservationManager{
     private Random random;
     private FileHandler fileHandler;
 
+    public void editGuestDetails(){
+        scanner.nextLine();
+        System.out.print("Enter ur member ID:");
+        String memberId = scanner.nextLine();
+        Guest foundGuest = null;
+        for(Guest guest : guests){
+            if (guest.getMemberId().equals(memberId)){
+                foundGuest = guest;
+                break;
+            }
+        }
+        if(foundGuest == null){
+            System.out.println(" not found!");
+            return;
+        }
+        System.out.println("Current Details:");
+        System.out.println("Name: " + foundGuest.getName());
+        System.out.println("Phone: " + foundGuest.getPhone());
+        System.out.println("Email: " + foundGuest.getEmail());
+        System.out.println("Age: " + foundGuest.getAge());
+        System.out.println("\nWhat do you want to edit?");
+        System.out.println("1.Phone Number");
+        System.out.println("2.Email Address");
+        System.out.print("Choose: ");
+        int choice = getIntInput();
+        scanner.nextLine();
+
+        if (choice == 1){
+            System.out.print("Enter new phone number:");
+            String newPhone = scanner.nextLine();
+            foundGuest.setPhone(newPhone);
+            System.out.println("Phone number updated to:"+ newPhone);
+        } else if (choice == 2){
+            System.out.print("Enter new email:");
+            String newEmail = scanner.nextLine();
+            foundGuest.setEmail(newEmail);
+            System.out.println("Email updated to:" + newEmail);
+        }
+        fileHandler.saveGuests(guests);
+    }
     public ReservationManager(){
         this.scanner= new Scanner(System.in);
         this.random= new Random();
         this.fileHandler= new FileHandler();
         loadAllData();
     }
-
     private void loadAllData(){
         this.rooms= fileHandler.loadRooms();
         this.guests= fileHandler.loadGuests();
@@ -60,7 +99,6 @@ public class ReservationManager{
             System.out.println("Room not available!");
         }
     }
-
     private Guest createNewGuest(){
         scanner.nextLine();
 
@@ -107,7 +145,7 @@ public class ReservationManager{
         }
     }
 
-    public void viewAllReservations() {
+    public void viewAllReservations(){
         System.out.println("\n=== ALL RESERVATIONS ===");
         for (Reservation res : reservations) {
             System.out.println("Reservation ID: " + res.getReservationId() +
@@ -116,11 +154,11 @@ public class ReservationManager{
         }
     }
 
-    public void cancelReservation() {
+    public void cancelReservation(){
         System.out.print("Enter reservation ID to cancel: ");
         String resId = scanner.next();
 
-        for (Reservation res : reservations) {
+        for (Reservation res : reservations){
             if (res.getReservationId().equalsIgnoreCase(resId)) {
                 res.getRoom().setAvailable(true);
                 reservations.remove(res);
@@ -131,8 +169,7 @@ public class ReservationManager{
         }
         System.out.println("Reservation ID not found!");
     }
-
-    public void viewAllRooms() {
+    public void viewAllRooms(){
         System.out.println("\n=== ALL ROOMS ===");
         for (Room room : rooms) {
             System.out.println("Room " + room.getRoomNumber() + " - " +
@@ -144,14 +181,13 @@ public class ReservationManager{
 
     public void viewAllGuests() {
         System.out.println("\n=== ALL GUESTS ===");
-        for (Guest guest : guests) {
+        for (Guest guest : guests){
             System.out.println("Member ID: " + guest.getMemberId() +
                     ", Name: " + guest.getName() +
                     ", Phone: " + guest.getPhone() +
                     ", Age: " + guest.getAge());
         }
     }
-
     private String generateMemberId(){
         String memberId;
         do {
@@ -159,7 +195,6 @@ public class ReservationManager{
         } while (findGuestById(memberId) != null);
         return memberId;
     }
-
     private Guest findGuestById(String memberId){
         for (Guest guest : guests) {
             if (guest.getMemberId().equals(memberId)){
@@ -168,7 +203,6 @@ public class ReservationManager{
         }
         return null;
     }
-
     private Guest findGuestByDetails(String name, String phone, String email, int age){
         for (Guest guest : guests){
             if (guest.getName().equalsIgnoreCase(name) &&
@@ -180,19 +214,18 @@ public class ReservationManager{
         }
         return null;
     }
-
-    private Room findRoomByNumber(int roomNumber) {
+    private Room findRoomByNumber(int roomNumber){
         for (Room room : rooms) {
-            if (room.getRoomNumber() == roomNumber) {
+            if (room.getRoomNumber() == roomNumber){
                 return room;
             }
         }
         return null;
     }
 
-    private int getIntInput() {
-        while (!scanner.hasNextInt()) {
-            System.out.print("Invalid input. Enter a number: ");
+    private int getIntInput(){
+        while (!scanner.hasNextInt()){
+            System.out.print("Invalid input.Enter a number:");
             scanner.next();
         }
         return scanner.nextInt();
