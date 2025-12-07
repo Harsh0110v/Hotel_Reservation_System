@@ -17,37 +17,41 @@ public class HotelSystem{
             System.out.println("4.Cancel Reservation");
             System.out.println("5.View All Rooms");
             System.out.println("6.View All Guests");
-            System.out.println("7.Exit");
-            System.out.println("8.Edit Guest Details");
+            System.out.println("7. View Guest Reservations");
+            System.out.println("8. Edit Guest Details");
+            System.out.println("9. Exit");
             System.out.print("Choose option:");
 
             int choice = getIntInput();
             switch (choice){
                 case 1:
                     reservationManager.makeReservation();
-                break;
+                    break;
                 case 2:
                     reservationManager.viewAvailableRooms();
-                break;
+                    break;
                 case 3:
                     reservationManager.viewAllReservations();
-                break;
+                    break;
                 case 4:
                     reservationManager.cancelReservation();
-                break;
+                    break;
                 case 5:
                     reservationManager.viewAllRooms();
-                break;
+                    break;
                 case 6:
                     reservationManager.viewAllGuests();
-                break;
+                    break;
                 case 7:
-                    reservationManager.saveAllData();
-                    System.out.println("Data saved.Thank you!");
-                    return;
+                    reservationManager.viewGuestReservations();
+                    break;
                 case 8:
                     reservationManager.editGuestDetails();
-                break;
+                    break;
+                case 9:
+                    reservationManager.saveAllData();
+                    System.out.println("Goodbye!");
+                    return;
                 default: System.out.println("Invalid option!");
             }
         }

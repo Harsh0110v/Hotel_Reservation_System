@@ -153,7 +153,6 @@ public class ReservationManager{
                     ", Room: " + res.getRoom().getRoomNumber());
         }
     }
-
     public void cancelReservation(){
         System.out.print("Enter reservation ID to cancel: ");
         String resId = scanner.next();
@@ -179,7 +178,7 @@ public class ReservationManager{
         }
     }
 
-    public void viewAllGuests() {
+    public void viewAllGuests(){
         System.out.println("\n=== ALL GUESTS ===");
         for (Guest guest : guests){
             System.out.println("Member ID: " + guest.getMemberId() +
@@ -196,7 +195,7 @@ public class ReservationManager{
         return memberId;
     }
     private Guest findGuestById(String memberId){
-        for (Guest guest : guests) {
+        for (Guest guest : guests){
             if (guest.getMemberId().equals(memberId)){
                 return guest;
             }
@@ -215,7 +214,7 @@ public class ReservationManager{
         return null;
     }
     private Room findRoomByNumber(int roomNumber){
-        for (Room room : rooms) {
+        for (Room room : rooms){
             if (room.getRoomNumber() == roomNumber){
                 return room;
             }
@@ -229,5 +228,23 @@ public class ReservationManager{
             scanner.next();
         }
         return scanner.nextInt();
+    }
+    public void viewGuestReservations(){
+        scanner.nextLine();
+        System.out.print("Enter your member ID: ");
+        String memberId= scanner.nextLine();
+        boolean found = false;
+        System.out.println("\n------RESERVATIONS FOR GUEST" + memberId + " ---");
+        for (Reservation res : reservations){
+            if (res.getGuest().getMemberId().equals(memberId)){
+                System.out.println("Reservation ID: " + res.getReservationId() +
+                        ", Room: " + res.getRoom().getRoomNumber() +
+                        ", Price: $" + res.getRoom().getPrice());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No reservations found for this guest.");
+        }
     }
 }
