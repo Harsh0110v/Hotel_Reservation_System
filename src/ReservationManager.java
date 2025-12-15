@@ -9,7 +9,6 @@ public class ReservationManager{
     private FileHandler fileHandler;
 
     public void editGuestDetails(){
-        scanner.nextLine();
         System.out.print("Enter ur member ID:");
         String memberId = scanner.nextLine();
         Guest foundGuest = null;

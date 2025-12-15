@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Guest implements Serializable {
+public class Guest implements Serializable{
     private String memberId;
     private String name;
     private String phone;
@@ -15,15 +15,15 @@ public class Guest implements Serializable {
         this.age = age;
     }
 
-    public String getMemberId() {
+    public String getMemberId(){
         return memberId; }
-    public String getName() {
+    public String getName(){
         return name; }
-    public String getPhone() {
+    public String getPhone(){
         return phone; }
-    public String getEmail() {
+    public String getEmail(){
         return email; }
-    public int getAge() {
+    public int getAge(){
         return age; }
     public void setPhone(String phone) {
         this.phone = phone;

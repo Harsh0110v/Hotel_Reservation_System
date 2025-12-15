@@ -71,11 +71,11 @@ public class FileHandler{
     private List<Room> createDefaultRooms(){
         List<Room> defaultRooms= new ArrayList<>();
         defaultRooms.add(new Room(101, "Standard", 100.0, "WiFi"));
-        defaultRooms.add(new Room(102, "Deluxe", 150.0, "WiFi, Sea View"));
-        defaultRooms.add(new Room(103, "Premium", 200.0, "WiFi, Jacuzzi"));
-        defaultRooms.add(new Room(201, "Luxury", 250.0, "WiFi, Jacuzzi, Sea View"));
+        defaultRooms.add(new Room(102, "Deluxe", 150.0, "WiFi,Sea View"));
+        defaultRooms.add(new Room(103, "Premium", 200.0, "WiFi,Jacuzzi"));
+        defaultRooms.add(new Room(201, "Luxury", 250.0, "WiFi,Jacuzzi,Sea View"));
         defaultRooms.add(new Room(202, "Standard", 100.0, "WiFi"));
-        defaultRooms.add(new Room(203, "Deluxe", 150.0, "WiFi, Sea View"));
+        defaultRooms.add(new Room(203, "Deluxe", 150.0, "WiFi,Sea View"));
         return defaultRooms;
     }
 }
